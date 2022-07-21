@@ -8,80 +8,78 @@ export default function Home({ name }) {
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossOrigin="anonymous" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/grids-responsive-min.css" />
       </Head>
-      <div className="app-wrapper">
+      <div className="">
         <Nav />
-        <main className="main-content p-1">
-          <form className="pure-form pure-form-stacked">
+        <main className="">
+          <form className="">
             <fieldset>
               <legend>Legend</legend>
-              <div className="pure-g">
-                <div className="pure-u-1 pure-u-md-1-3">
+              <div className="">
+                <div className="">
                   <label htmlFor="multi-first-name">First Name</label>
-                  <input type="text" id="multi-first-name" className="pure-u-23-24" />
+                  <input type="text" id="multi-first-name" className="" />
                 </div>
-                <div className="pure-u-1 pure-u-md-1-3">
+                <div className="">
                   <label htmlFor="multi-last-name">Last Name</label>
-                  <input type="text" id="multi-last-name" className="pure-u-23-24" />
+                  <input type="text" id="multi-last-name" className="" />
                 </div>
-                <div className="pure-u-1 pure-u-md-1-3">
+                <div className="">
                   <label htmlFor="multi-email">E-Mail</label>
-                  <input type="email" id="multi-email" className="pure-u-23-24" />
+                  <input type="email" id="multi-email" className="" />
                 </div>
-                <div className="pure-u-1 pure-u-md-1-3">
+                <div className="">
                   <label htmlFor="multi-city">City</label>
-                  <input type="text" id="multi-city" className="pure-u-23-24" />
+                  <input type="text" id="multi-city" className="" />
                 </div>
-                <div className="pure-u-1 pure-u-md-1-3">
+                <div className="">
                   <label htmlFor="multi-state">State</label>
-                  <select id="multi-state" className="pure-input-1-2">
+                  <select id="multi-state" className="">
                     <option>AL</option>
                     <option>CA</option>
                     <option>IL</option>
                   </select>
                 </div>
               </div>
-              <label htmlFor="multi-terms" className="pure-checkbox">
+              <label htmlFor="multi-terms" className="">
                 <input type="checkbox" id="multi-terms" /> I&#x27;ve read the terms and conditions
               </label>
-              <button type="submit" className="pure-button pure-button-primary">Submit</button>
+              <button type="submit" className="">Submit</button>
             </fieldset>
           </form>
-          <form className="pure-form pure-form-stacked">
+          <form className="">
             <fieldset>
               <legend>Legend</legend>
-              <div className="pure-g">
-                <div className="pure-u-1 pure-u-md-1-3">
+              <div className="">
+                <div className="">
                   <label htmlFor="multi-first-name">First Name</label>
-                  <input type="text" id="multi-first-name" className="pure-u-23-24" />
+                  <input type="text" id="multi-first-name" className="" />
                 </div>
-                <div className="pure-u-1 pure-u-md-1-3">
+                <div className="">
                   <label htmlFor="multi-last-name">Last Name</label>
-                  <input type="text" id="multi-last-name" className="pure-u-23-24" />
+                  <input type="text" id="multi-last-name" className="" />
                 </div>
-                <div className="pure-u-1 pure-u-md-1-3">
+                <div className="">
                   <label htmlFor="multi-email">E-Mail</label>
-                  <input type="email" id="multi-email" className="pure-u-23-24" />
+                  <input type="email" id="multi-email" className="" />
                 </div>
-                <div className="pure-u-1 pure-u-md-1-3">
+                <div className="">
                   <label htmlFor="multi-city">City</label>
-                  <input type="text" id="multi-city" className="pure-u-23-24" />
+                  <input type="text" id="multi-city" className="" />
                 </div>
-                <div className="pure-u-1 pure-u-md-1-3">
+                <div className="">
                   <label htmlFor="multi-state">State</label>
-                  <select id="multi-state" className="pure-input-1-2">
+                  <select id="multi-state" className="">
                     <option>AL</option>
                     <option>CA</option>
                     <option>IL</option>
                   </select>
                 </div>
               </div>
-              <label htmlFor="multi-terms" className="pure-checkbox">
+              <label htmlFor="multi-terms" className="">
                 <input type="checkbox" id="multi-terms" /> I&#x27;ve read the terms and conditions
               </label>
-              <button type="submit" className="pure-button pure-button-primary">Submit</button>
+              <button type="submit" className="">Submit</button>
             </fieldset>
           </form>
         </main>
