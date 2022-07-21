@@ -7,8 +7,14 @@ export default function Nav() {
   return (
     <div className="md:w-[200px]">
       <div className="md:fixed">
-        <div className="top-logo h-16 bg-white border-b border-b-gray-200 flex justify-between p-4 items-center md:border-r-[0.5px] md:border-r-gray-200">
-          <span className="font-bold">WORDY APP!</span>
+        <div className="top-logo h-18 bg-white border-b border-b-gray-200 flex justify-between p-4 items-center md:border-r-[0.5px] md:border-r-gray-200">
+          <span>
+            <Link href="/">
+              <a>
+                <img src="/logo.svg" alt="" className="h-[45px]" />
+              </a>
+            </Link>
+          </span>
           <label className="menu-icon cursor-pointer md:hidden" htmlFor="menu-toggle">
             <MenuIcon className="h-6 w-6 text-gray-800"/>
           </label>
@@ -17,7 +23,13 @@ export default function Nav() {
         <div className="main-side-menu fixed left-0 top-0 w-0 h-screen bg-black/[0.5] left-[-5000px] peer-checked:left-0 peer-checked:w-full duration-300 ase-out md:left-0 md:w-[200px] md:relative">
           <nav className="">
             <div className="top-logo h-16 bg-white border-b border-b-gray-200 flex justify-between p-4 items-center md:hidden md:border-r-[0.5px] md:border-r-gray-200">
-              <span className="font-bold">WORDY APP!</span>
+              <span>
+                <Link href="/">
+                  <a>
+                    <img src="/logo.svg" alt="" className="h-[45px]" />
+                  </a>
+                </Link>
+              </span>
               <label className="menu-icon-close" htmlFor="menu-toggle">
                 <XIcon className="h-6 w-6 text-gray-800 cursor-pointer"/>
               </label>
