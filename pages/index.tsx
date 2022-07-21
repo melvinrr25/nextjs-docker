@@ -63,7 +63,7 @@ export default function Home({ name }) {
                 </div>
                 <div className="pure-u-1 pure-u-md-1-3">
                   <label htmlFor="multi-email">E-Mail</label>
-                  <input type="email" id="multi-email" className="pure-u-23-24" required="" />
+                  <input type="email" id="multi-email" className="pure-u-23-24" />
                 </div>
                 <div className="pure-u-1 pure-u-md-1-3">
                   <label htmlFor="multi-city">City</label>
