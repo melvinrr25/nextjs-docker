@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p $PORT"
+    "start": "next start -p $PORT",
+    "dev:up": "docker-compose -f docker-compose.dev.yml up"
   },
   "dependencies": {
     "next": "latest",
