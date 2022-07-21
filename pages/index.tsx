@@ -9,9 +9,9 @@ export default function Home({ name }) {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="">
+      <div className="md:flex">
         <Nav />
-        <main className="">
+        <main className="md:flex-1 bg-gray-100 p-8">
           <form className="">
             <fieldset>
               <legend>Legend</legend>
