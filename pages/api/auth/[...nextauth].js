@@ -25,9 +25,8 @@ CredentialsProvider({
         return user ? user : null;
       },
     }),
-    // ...add more providers here
   ],
-  secret: "secret",
+  secret: process.env.JWT_SECRET,
   pages: {
     signIn: '/signin',
   },
