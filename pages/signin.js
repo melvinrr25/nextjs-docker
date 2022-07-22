@@ -3,12 +3,14 @@ import { getSession, getCsrfToken, signIn } from 'next-auth/react'
 import { useState } from 'react';
 
 function Login({ csrfToken }) {
+  const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const router = useRouter()
 
   const handleSubmit = async (e) => {
+    setSubmitting(true)
     setError(null)
     e.preventDefault()
 
@@ -17,6 +19,8 @@ function Login({ csrfToken }) {
       email: email,
       password: password,
     });
+
+    setSubmitting(false)
 
     if (res && res.ok){
       return router.push('/dashboard')
@@ -50,12 +54,13 @@ function Login({ csrfToken }) {
                 onChange={ e => setPassword(e.target.value) }
               />
             </div>
-            <div className="text-center pt-1 mb-12 pb-1">
+            <div className="text-center pt-1 pb-1">
               <button
-                className="bg-amber-800 inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-amber-900 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
+                className="disabled:opacity-75 bg-amber-800 inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-amber-900 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
                 type="submit" 
+                disabled={ submitting }
               >
-                Log in
+                { submitting ? 'Submitting...' : 'Log In' }
               </button>
               { error && (
                 <div className="text-red-500">{error}</div>
