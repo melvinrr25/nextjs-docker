@@ -15,7 +15,7 @@ function Login({ csrfToken }) {
       password: password,
     });
 
-    if (res.ok){
+    if (res && res.ok){
       setError(null)
       return router.push('/dashboard')
     }
