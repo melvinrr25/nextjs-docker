@@ -1,5 +1,7 @@
 import NextAuth from 'next-auth';
-import CredentialsProvider from 'next-auth/providers/credentials';
+import CredentialsProvider from 'next-auth/providers/credentials'
+import { Deta } from 'deta'
+import { databaseCollections } from '../../../services/constants'
 
 export default NextAuth({
 providers: [
@@ -13,20 +15,14 @@ CredentialsProvider({
         },
         password: { label: 'Password', type: 'password' },
       },
-      async authorize(credentials, req) {
-        const payload = {
-          email: credentials.email,
-          password: credentials.password,
-        };
+      async authorize(credentials) {
+        const deta = Deta(process.env.DETA_KEY)
+        const db = deta.Base(databaseCollections.users)
+        const query = { email: credentials.email, password: credentials.password }
+        const { items } = await db.fetch(query)
+        const user = items[0]
 
-        const user = { name: "melvinrodriguez" }
-
-        if (user) {
-          return user;
-        }
-
-        return null;
-        // Return null if user data could not be retrieved
+        return user ? user : null;
       },
     }),
     // ...add more providers here
@@ -40,15 +36,14 @@ CredentialsProvider({
       if (account && user) {
         return {
           ...token,
-          name: user.name
+          email: user.email
         };
       }
 
       return token;
     },
-
     async session({ session, token }) {
-      session.user.name = token.name;
+      session.user.email = token.email;
       return session;
     },
   },

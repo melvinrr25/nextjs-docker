@@ -5,7 +5,7 @@ export default function Dashboard() {
   if (session) {
     return (
       <>
-        Dashboard: Signed in as {session && session.user && session.user.name} <br />
+        Dashboard: Signed in as {session && session.user && session.user.email} <br />
       </>
     )
   }

@@ -78,6 +78,6 @@ export default function Home({ name }) {
 
 export function getServerSideProps() {
   return { 
-    props: { name: process.env.USERNAME } 
+    props: {  } 
   }
 }

@@ -72,7 +72,6 @@ function Login({ csrfToken }) {
 export async function getServerSideProps(context) {
   const { res } = context;
   const session = await getSession(context)
-  console.log(session)  
   if (session && res && session.user){
     return  { 
       redirect: {
@@ -82,11 +81,11 @@ export async function getServerSideProps(context) {
       props: { } 
     }
   }
-  
+
+  const csrfToken = await getCsrfToken(context)
+
   return {
-    props: {
-      csrfToken: await getCsrfToken(context)
-    }
+    props: { csrfToken: csrfToken || null }
   }
 }
 

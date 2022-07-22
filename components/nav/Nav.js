@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { 
   MenuIcon, XIcon, HomeIcon, LogoutIcon, BookOpenIcon, PuzzleIcon
 } from '@heroicons/react/outline'
-import { signIn } from "next-auth/react"
+import { signIn, signOut } from "next-auth/react"
 
 export default function Nav() {
   const hiddenInputForMenu = useRef()
@@ -65,11 +65,12 @@ export default function Nav() {
                 </Link>
               </li>
               <li>
-                <Link href="/logout">
-                  <a className="flex items-center gap-2 p-4 border-b border-b-gray-200 text-gray-500 hover:text-gray-900" onClick={handleItemClicked}>
-                    <LogoutIcon className="h-5 w-5"/> Logout
-                  </a>
-                </Link>
+                <button 
+                  className="flex items-center gap-2 p-4 border-b border-b-gray-200 text-gray-500 hover:text-gray-900 w-full"
+                  onClick={ () => signOut() }
+                >
+                  <LogoutIcon className="h-5 w-5"/> Logout
+                </button>
               </li>
               <li>
                 <button 
