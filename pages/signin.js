@@ -74,9 +74,13 @@ export async function getServerSideProps(context) {
   const session = await getSession(context)
   console.log(session)  
   if (session && res && session.user){
-    res.writeHead(302, { Location: "/dashboard" })
-    res.end()
-    return  { props: { } }
+    return  { 
+      redirect: {
+        permanent: false,
+        destination: "/dashboard",
+      },
+      props: { } 
+    }
   }
   
   return {
