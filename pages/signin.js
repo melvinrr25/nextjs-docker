@@ -8,7 +8,10 @@ function Login({ csrfToken }) {
   const [password, setPassword] = useState(null);
   const router = useRouter()
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    setError(null)
+    e.preventDefault()
+
     const res = await signIn('credentials', {
       redirect: false,
       email: email,
@@ -16,7 +19,6 @@ function Login({ csrfToken }) {
     });
 
     if (res && res.ok){
-      setError(null)
       return router.push('/dashboard')
     }
 
@@ -24,10 +26,10 @@ function Login({ csrfToken }) {
   }
   return (
     <>
-      <section className=" min-h-screen flex items-center">
+      <section className=" min-h-screen pt-10">
         <div className="h-full gradient-form w-[300px] m-auto shadow-sm bg-white p-4">
           <img className="mx-auto w-48" src="/logo.svg" alt="logo" />
-          <form>
+          <form onClick={handleSubmit} >
             <input type="hidden" defaultValue={ csrfToken } />
             <p className="mb-4 mt-4">Please login to your account</p>
             <div className="mb-4">
@@ -53,8 +55,7 @@ function Login({ csrfToken }) {
             <div className="text-center pt-1 mb-12 pb-1">
               <button
                 className="bg-blue-500 inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
-                type="button"
-                onClick={handleSubmit}
+                type="submit" 
               >
                 Log in
               </button>
