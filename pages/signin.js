@@ -29,14 +29,13 @@ function Login({ csrfToken }) {
       <section className=" min-h-screen pt-10">
         <div className="h-full gradient-form w-[300px] m-auto shadow-sm bg-white p-4">
           <img className="mx-auto w-48" src="/logo.svg" alt="logo" />
-          <form onClick={handleSubmit} >
+          <form onSubmit={handleSubmit} >
             <input type="hidden" defaultValue={ csrfToken } />
             <p className="mb-4 mt-4">Please login to your account</p>
             <div className="mb-4">
               <input
                 type="text"
-                className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                id="exampleFormControlInput1"
+                className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 border border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none"
                 placeholder="Email"
                 defaultValue={email}
                 onChange={e => setEmail(e.target.value) }
@@ -45,8 +44,7 @@ function Login({ csrfToken }) {
             <div className="mb-4">
               <input
                 type="password"
-                className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                id="exampleFormControlInput1"
+                className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 border border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-green-600 focus:outline-none"
                 placeholder="Password"
                 defaultValue={password}
                 onChange={ e => setPassword(e.target.value) }
@@ -54,7 +52,7 @@ function Login({ csrfToken }) {
             </div>
             <div className="text-center pt-1 mb-12 pb-1">
               <button
-                className="bg-blue-500 inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
+                className="bg-amber-800 inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-amber-900 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
                 type="submit" 
               >
                 Log in
