@@ -69,7 +69,7 @@ export default function Nav() {
                 <li>
                   <button 
                     className="flex items-center gap-2 p-4 border-b border-b-gray-200 text-gray-500 hover:text-gray-900 w-full"
-                    onClick={ () => signOut() }
+                    onClick={ () => signOut({ callbackUrl: '/signin' }) }
                   >
                     <LogoutIcon className="h-5 w-5"/> Logout
                   </button>
