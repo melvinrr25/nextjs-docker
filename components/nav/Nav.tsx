@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { 
   MenuIcon, XIcon, HomeIcon, LogoutIcon, BookOpenIcon, PuzzleIcon
 } from '@heroicons/react/outline'
+import { signIn } from "next-auth/react"
 
 export default function Nav() {
   return (
@@ -36,9 +37,9 @@ export default function Nav() {
             </div>
             <ul className="bg-white w-1/2 h-screen md:w-[200px] border-r-[0.5px] border-r-gray-200">
               <li>
-                <Link href="/">
+                <Link href="/dashboard">
                   <a className="flex items-center gap-2 p-4 border-b border-b-gray-200 text-gray-500 hover:text-gray-900">
-                    <HomeIcon className="h-5 w-5"/> Home
+                    <HomeIcon className="h-5 w-5"/> Dashboard
                   </a>
                 </Link>
               </li>
@@ -62,6 +63,14 @@ export default function Nav() {
                     <LogoutIcon className="h-5 w-5"/> Logout
                   </a>
                 </Link>
+              </li>
+              <li>
+                <button 
+                  className="flex items-center gap-2 p-4 border-b border-b-gray-200 text-gray-500 hover:text-gray-900 w-full"
+                  onClick={ () => signIn() }
+                >
+                  <LogoutIcon className="h-5 w-5"/> Login
+                </button>
               </li>
             </ul>
           </nav>

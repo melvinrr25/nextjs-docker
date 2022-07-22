@@ -1,36 +1,56 @@
-import NextAuth from "next-auth";
-import Providers from "next-auth/providers";
+import NextAuth from 'next-auth';
+import CredentialsProvider from 'next-auth/providers/credentials';
 
-const options = {
-  providers: [
-    Providers.GitHub({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
-    }),
-    Providers.Twitter({
-      clientId: process.env.TWITTER_ID,
-      clientSecret: process.env.TWITTER_SECRET,
-    }),
-    Providers.Email({
-      server: {
-        host: process.env.EMAIL_SERVER_HOST,
-        port: process.env.EMAIL_SERVER_PORT,
-        auth: {
-          user: process.env.EMAIL_SERVER_USER,
-          pass: process.env.EMAIL_SERVER_PASSWORD,
+export default NextAuth({
+providers: [
+CredentialsProvider({
+  name: 'my-project',
+      credentials: {
+        email: {
+          label: 'email',
+          type: 'email',
+          placeholder: 'jsmith@example.com',
         },
+        password: { label: 'Password', type: 'password' },
       },
-      from: process.env.EMAIL_FROM,
-    }),
-  ],
-  pages: {
-    signIn: "/signin",
-  },
-  database: {
-    type: "sqlite",
-    database: ":memory:",
-    synchronize: true,
-  },
-};
+      async authorize(credentials, req) {
+        const payload = {
+          email: credentials.email,
+          password: credentials.password,
+        };
 
-export default (req, res) => NextAuth(req, res, options);
+        const user = { name: "melvinrodriguez" }
+
+        if (user) {
+          return user;
+        }
+
+        return null;
+        // Return null if user data could not be retrieved
+      },
+    }),
+    // ...add more providers here
+  ],
+  secret: "secret",
+  pages: {
+    signIn: '/signin',
+  },
+  callbacks: {
+    async jwt({ token, user, account }) {
+      if (account && user) {
+        return {
+          ...token,
+          name: user.name
+        };
+      }
+
+      return token;
+    },
+
+    async session({ session, token }) {
+      session.user.name = token.name;
+      return session;
+    },
+  },
+});
+

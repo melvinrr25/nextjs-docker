@@ -11,4 +11,4 @@ services: #This section defines all the different containers we will create.
       context: . #This specifies the location of our Dockerfile
       dockerfile: Dockerfile.dev
     ports: #This is used to map the container’s ports to the host machine.
-      - "8080:8080"
+      - "8080:3000"
