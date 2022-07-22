@@ -3,9 +3,10 @@ import { useRef } from "react";
 import { 
   MenuIcon, XIcon, HomeIcon, LogoutIcon, BookOpenIcon, PuzzleIcon
 } from '@heroicons/react/outline'
-import { signIn, signOut } from "next-auth/react"
+import { signIn, signOut, useSession } from "next-auth/react"
 
 export default function Nav() {
+  const { data: session } = useSession()
   const hiddenInputForMenu = useRef()
 
   const handleItemClicked = () => {
@@ -64,22 +65,27 @@ export default function Nav() {
                   </a>
                 </Link>
               </li>
-              <li>
-                <button 
-                  className="flex items-center gap-2 p-4 border-b border-b-gray-200 text-gray-500 hover:text-gray-900 w-full"
-                  onClick={ () => signOut() }
-                >
-                  <LogoutIcon className="h-5 w-5"/> Logout
-                </button>
-              </li>
-              <li>
-                <button 
-                  className="flex items-center gap-2 p-4 border-b border-b-gray-200 text-gray-500 hover:text-gray-900 w-full"
-                  onClick={ () => signIn() }
-                >
-                  <LogoutIcon className="h-5 w-5"/> Login
-                </button>
-              </li>
+              { session && (
+                <li>
+                  <button 
+                    className="flex items-center gap-2 p-4 border-b border-b-gray-200 text-gray-500 hover:text-gray-900 w-full"
+                    onClick={ () => signOut() }
+                  >
+                    <LogoutIcon className="h-5 w-5"/> Logout
+                  </button>
+                </li>
+              )}
+
+              { !session && (
+                <li>
+                  <button 
+                    className="flex items-center gap-2 p-4 border-b border-b-gray-200 text-gray-500 hover:text-gray-900 w-full"
+                    onClick={ () => signIn() }
+                  >
+                    <LogoutIcon className="h-5 w-5"/> Login
+                  </button>
+                </li>
+              )}
             </ul>
           </nav>
         </div>
