@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Nav from '../components/nav/Nav'
+import Nav from '../components/Nav'
 
 export default function Layout({ children }) {
   return <>
