@@ -56,7 +56,7 @@ function Login({ csrfToken }) {
             </div>
             <div className="text-center pt-1 pb-1">
               <button
-                className="disabled:opacity-75 bg-amber-800 inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-amber-900 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
+                className="custom-primary-btn w-full"
                 type="submit" 
                 disabled={ submitting }
               >
